@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 class PostsController extends Controller
 {
@@ -13,6 +14,8 @@ class PostsController extends Controller
         $post->user_id = Auth::user()->id;
 
         $post->save();
+
+        Session::flash('success', 'Post successfully created!');
 
         return redirect()->back();
     }

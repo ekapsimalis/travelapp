@@ -12,6 +12,7 @@
              <div id="background">
                    @include('inc._navbar')
                    <div class="container">
+                         @include('inc._messages')
                          @yield('content')
                    </div>
              </div>
