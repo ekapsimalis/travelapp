@@ -15,25 +15,9 @@
                 <button type="submit" class="btn waves-effect waves-light">Post</button>
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
             </form>
-            <h4>Explore top news </h4>
-            <ul class="collection teal lighten-2">
-                <li class="collection-item-avatar">
-                    <span class="title text-white"><h5>{{$news->articles[0]->title}}</h5></span>
-                    <p class="text-white">{{$news->articles[0]->description}}</p>
-                </li>
-                <li class="collection-item-avatar">
-                        <span class="title"><h5>{{$news->articles[1]->title}}</h5></span>
-                        <p>{{$news->articles[1]->description}}</p>
-                </li>
-                <li class="collection-item-avatar">
-                        <span class="title"><h5>{{$news->articles[2]->title}}</h5></span>
-                        <p>{{$news->articles[2]->description}}</p>
-                </li>
-                <li class="collection-item-avatar">
-                        <span class="title"><h5>{{$news->articles[3]->title}}</h5></span>
-                        <p>{{$news->articles[3]->description}}</p>
-                </li>
-            </ul>
+
+            
+           
 
         </div>
         <div class="col s5">

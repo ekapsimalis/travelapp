@@ -10,7 +10,10 @@ use App\User;
 class PagesController extends Controller
 {
     public function index(){
-        return view('welcome');
+
+        $apiresponse = file_get_contents('https://newsapi.org/v2/top-headlines?sources=national-geographic&apiKey=5f59ad149eff4be1a8f016bfd51d4fb9');
+        $news = json_decode($apiresponse);
+        return view('welcome')->with('news', $news);
 
     }
 
@@ -35,9 +38,7 @@ class PagesController extends Controller
 
         $posts = Post::all();
 
-        $apiresponse = file_get_contents('https://newsapi.org/v2/top-headlines?sources=national-geographic&apiKey=5f59ad149eff4be1a8f016bfd51d4fb9');
-        $news = json_decode($apiresponse);
-
-        return view('dashboard')->with('posts', $posts)->with('news', $news);
+        return view('dashboard')->with('posts', $posts);
     }
 }
+

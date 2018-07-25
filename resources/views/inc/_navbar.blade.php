@@ -1,6 +1,7 @@
 
-      <nav>
+     <nav>
         <div class="nav-wrapper teal lighten-2">
+            <div class="container">
         <a href="{{route('home')}}" class="brand-logo">TravelMe</a>
           <ul class="right hide-on-med-and-down">
             <li><a href="{{route('about')}}">About</a></li>
@@ -14,6 +15,7 @@
               <li><a href="{{route('logout')}}">Log Out</a></li>
             @endif
           </ul>
+            </div>
         </div>
       </nav>
-              
+  

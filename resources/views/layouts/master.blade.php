@@ -10,12 +10,13 @@
 
        <body id="background">
              <div id="background">
-                   @include('inc._navbar')
+                        @include('inc._navbar')
                    <div class="container">
                          @include('inc._messages')
                          @yield('content')
                    </div>
              </div>
         <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/myscript.js')}}"></script>
       </body>
 </html>
