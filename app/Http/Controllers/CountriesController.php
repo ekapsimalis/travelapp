@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Country;
 
 class CountriesController extends Controller
 {
@@ -11,7 +12,8 @@ class CountriesController extends Controller
     }
 
     public function show($id){
-        // Logic of how to create the dynamic urls
-        // Add the url route to routes.web.php
+
+        $country = Country::find($id);
+        return view('country.show')->with('country', $country);
     }
 }

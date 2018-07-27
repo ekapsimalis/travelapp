@@ -6,6 +6,7 @@
         <link type="text/css" rel="stylesheet" href="{{asset('css/main.css')}}"  media="screen,projection"/>
         <title> Travelapp -- @yield('title') </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        @yield('head')
   </head>
 
        <body id="background">
@@ -15,7 +16,6 @@
                          @include('inc._messages')
                          @yield('content')
                    </div>
-                   @include('inc._footer')
              </div>
         <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/myscript.js')}}"></script>
