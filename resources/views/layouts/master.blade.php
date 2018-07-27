@@ -15,6 +15,7 @@
                          @include('inc._messages')
                          @yield('content')
                    </div>
+                   @include('inc._footer')
              </div>
         <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/myscript.js')}}"></script>
