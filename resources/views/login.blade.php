@@ -5,22 +5,31 @@
 @endsection
 
 @section('content')
-
-<form action="{{route('post.login')}}" method="post">
-        <div class="row">
-            <div class="input-field col s6">
-                <input type="text" placeholder="Email" name="email" class="validate">
-                <label for="email" class="black-text">Email</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="text" placeholder="Password" name="password" class="validate">
-                <label for="password" class="black-text">Password</label>
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <form action="{{ route('post.login') }}" method="post">
+                    <div class="card">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">email</i>
+                                <input type="text" class="validate" name="email" id="email">
+                                <label for="email">E-mail</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">create</i>
+                                <input type="password" class="validate" name="password" id="password">
+                                <label for="password">Password</label>
+                            </div>
+                            <div class="col s12">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Log In
+                                    <i class="material-icons right">send</i>
+                                </button>
+                                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                            </div>
+                        </div>
+                </form>
             </div>
         </div>
-        <div class="row allign-center">
-            <button type="submit" class="btn waves-effect waves-light allign-center">Log In</button>
-            <input type="hidden" name="_token" value="{{ Session::token() }}">
-        </div>
-</form> 
+    </div>
     
 @endsection

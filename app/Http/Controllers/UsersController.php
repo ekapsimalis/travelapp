@@ -11,10 +11,12 @@ class UsersController extends Controller
     public function postSignUp(Request $request){
         $email = $request['email'];
         $password = bcrypt($request['password']);
+        $username = $request['username'];
 
         $user = new User();
         $user->email = $email;
         $user->password = $password;
+        $user->username = $username;
         $user->save();
 
         Auth::login($user);

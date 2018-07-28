@@ -11,7 +11,7 @@
               <li><a href="{{route('signup')}}">SignUp</a></li>
             @endif
             @if (!Auth::guest())
-              <li><a href="{{route('dashboard')}}">Hello {{ Auth::user()->email }}</a></li>
+              <li><a href="{{route('dashboard')}}">Hello {{ Auth::user()->username }}</a></li>
               <li><a href="{{route('logout')}}">Log Out</a></li>
             @endif
           </ul>
