@@ -32,4 +32,5 @@
         </div>
     </div>
     @endforeach
+    {{ $countries->links() }}
 @endsection

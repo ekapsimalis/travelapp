@@ -27,8 +27,8 @@
             <div class="row">
                 <h3 class="center-align">{{ $country->name }}</h3>
             </div>
-            <div class="row">
-                <img src="{{ $country->image }}" alt="{{ $country->name }}" class="col s12">
+            <div class="parallax-container">
+                <div class="parallax"><img src="{{ $country->image }}"></div>
             </div>
         </div>
     </div>

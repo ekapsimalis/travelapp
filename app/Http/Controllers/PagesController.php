@@ -36,7 +36,7 @@ class PagesController extends Controller
             return redirect()->route('login');
         }
 
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
 
         return view('dashboard')->with('posts', $posts);
     }
