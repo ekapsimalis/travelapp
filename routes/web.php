@@ -21,5 +21,6 @@ Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
 Route::post('/ppost', 'PostsController@postPost')->name('post.post');
 Route::get('/countries', 'CountriesController@index')->name('countries');
 Route::get('/countries/{id}', 'CountriesController@show')->name('show.country');
+Route::get('/{continent}', 'CountriesController@byContinents')->name('countries.continents');
 
 

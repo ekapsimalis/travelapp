@@ -9,7 +9,7 @@
         <ul>
           <li><a class="grey-text text-lighten-3" href="{{route('home')}}">Home</a></li>
           <li><a class="grey-text text-lighten-3" href="{{route('about')}}">About</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Explore</a></li>
+          <li><a class="grey-text text-lighten-3" href="{{route('countries')}}">Explore</a></li>
           <li><a class="grey-text text-lighten-3" href="#!">Science</a></li>
         </ul>
       </div>

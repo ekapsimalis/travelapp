@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
 @section('title')
-    Countries
+    Continent
 @endsection
 
 @section('content')
     <div class="row"></div>
-    <div class="row">
+<div class="row">
         <div class="col s12">
             <nav>
                 <div class="nav-wrapper green accent-4">
@@ -48,5 +48,4 @@
         </div>
     </div>
     @endforeach
-    {{ $countries->links() }}
 @endsection

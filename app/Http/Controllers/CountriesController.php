@@ -9,7 +9,6 @@ use App\Country;
 class CountriesController extends Controller
 {
     public function index(){
-        //$countries = Country::all();
         $countries = DB::table('countries')->paginate(3);
         return view('country.countries')->with('countries', $countries);
     }
@@ -18,5 +17,10 @@ class CountriesController extends Controller
 
         $country = Country::find($id);
         return view('country.show')->with('country', $country);
+    }
+
+    public function byContinents($continent){
+        $countries = DB::table('countries')->where('continent', $continent)->get();
+        return view('country.byContinent')->with('countries', $countries);
     }
 }
