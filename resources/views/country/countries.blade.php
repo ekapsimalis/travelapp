@@ -11,11 +11,11 @@
             <nav>
                 <div class="nav-wrapper green accent-4">
                     <ul class="left">
-                        <li><a href="/Europe">Europe</a></li>
-                        <li><a href="/Asia">Asia</a></li>
-                        <li><a href="/America">America</a></li>
-                        <li><a href="/Africa">Africa</a></li>
-                        <li><a href="/Australia">Australia</a></li>
+                        <li><a href="{!! route('countries.continents', 'Europe') !!}">Europe</a></li>
+                        <li><a href="{!! route('countries.continents', 'Asia') !!}">Asia</a></li>
+                        <li><a href="{!! route('countries.continents', 'America') !!}">America</a></li>
+                        <li><a href="{!! route('countries.continents', 'Africa') !!}">Africa</a></li>
+                        <li><a href="{!! route('countries.continents', 'Australia') !!}">Australia</a></li>
                     </ul>
                 </div>
             </nav>
@@ -42,7 +42,7 @@
                     <p>{{ $country->description }}</p>
                 </div>
                 <div class="card-action">
-                    <a class="waves-effect waves-light btn green accent-4" href="/countries/{{ $country->id }}">Explore {{ $country->name }}</a>
+                    <a class="waves-effect waves-light btn green accent-4" href="{!! route('show.country', $country->id) !!}">Explore {{ $country->name }}</a>
                 </div>
             </div>
         </div>
