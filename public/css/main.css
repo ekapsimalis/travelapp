@@ -12,4 +12,8 @@ body {
 
 main {
     flex: 1 0 auto;
-}  
+}
+
+#contactform {
+    padding-top: 40px;
+}

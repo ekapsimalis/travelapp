@@ -9,7 +9,7 @@ use App\Country;
 class CountriesController extends Controller
 {
     public function index(){
-        $countries = DB::table('countries')->paginate(3);
+        $countries = DB::table('countries')->paginate(5);
         return view('country.countries')->with('countries', $countries);
     }
 

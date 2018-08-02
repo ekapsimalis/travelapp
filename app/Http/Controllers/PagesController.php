@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\User;
+use App\Feedback;
+use Session;
 
 class PagesController extends Controller
 {
@@ -39,6 +41,33 @@ class PagesController extends Controller
         $posts = Post::orderBy('id', 'desc')->paginate(10);
 
         return view('dashboard')->with('posts', $posts);
+    }
+
+    public function postFeedback(Request $request){
+
+        if (Auth::guest()){
+            return redirect()->route('login');
+        }
+
+        $this->validate($request, [
+            'title' => 'required|max:191',
+            'body' => 'required',
+            'rating' => 'required'
+        ]);
+
+        $feedback = new Feedback();
+
+        $feedback->title = $request['title'];
+        $feedback->body = $request['body'];
+        $feedback->rating = $request['rating'];
+        $feedback->user_id = Auth::user()->id;
+
+        $feedback->save();
+
+        Session::flash('feedback', 'Thanks for rating us, we appriciate your feedback');
+
+        return redirect()->route('dashboard');
+
     }
 }
 

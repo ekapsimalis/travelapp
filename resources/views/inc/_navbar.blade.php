@@ -4,7 +4,7 @@
             <div class="container">
         <a href="{{route('home')}}" class="brand-logo">TravelMe</a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="{{route('about')}}">About</a></li>
+            <li><a href="{{route('about')}}">Contact us </a></li>
             <li><a href="{{route('countries')}}">Explore</a></li>
             @if (Auth::guest())
               <li><a href="{{route('login')}}">LogIn</a></li>

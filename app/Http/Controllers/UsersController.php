@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Session;
 
 class UsersController extends Controller
 {
@@ -42,6 +43,8 @@ class UsersController extends Controller
         if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])){
             return redirect()->route('dashboard');
         }
+
+        Session::flash('loginerror', 'Either email or password is incorrect!');
 
         return redirect()->back();
 

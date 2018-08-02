@@ -41,7 +41,7 @@
                     <h4>{{ $country->name }}</h4>
                     <p>{{ $country->description }}</p>
                 </div>
-                <div class="card-action">
+                <div class="card-action center-align">
                     <a class="waves-effect waves-light btn green accent-4" href="{!! route('show.country', $country->id) !!}">Explore {{ $country->name }}</a>
                 </div>
             </div>
