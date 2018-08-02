@@ -9,6 +9,13 @@ use App\User;
 class UsersController extends Controller
 {
     public function postSignUp(Request $request){
+
+        $this->validate($request, [
+            'username' => 'required|max:191',
+            'email' => 'required|max:191|unique:users',
+            'password' =>'required|max:191|'
+        ]);
+
         $email = $request['email'];
         $password = bcrypt($request['password']);
         $username = $request['username'];
@@ -26,6 +33,12 @@ class UsersController extends Controller
     }
 
     public function postLogIn(Request $request){
+        
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
         if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])){
             return redirect()->route('dashboard');
         }
