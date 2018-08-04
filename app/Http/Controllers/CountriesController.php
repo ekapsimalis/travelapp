@@ -16,7 +16,9 @@ class CountriesController extends Controller
     public function show($id){
 
         $country = Country::find($id);
-        return view('country.show')->with('country', $country);
+        $places = Country::find($id)->places;
+
+        return view('country.show')->with('country', $country)->with('places', $places);
     }
 
     public function byContinents($continent){
