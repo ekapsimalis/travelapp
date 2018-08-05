@@ -13,6 +13,9 @@
             @if (!Auth::guest())
               <li><a href="{{route('dashboard')}}">Hello {{ Auth::user()->username }}</a></li>
               <li><a href="{{route('logout')}}">Log Out</a></li>
+              @if (auth()->user()->isAdmin())
+                <li><a href="{{route('admin')}}">Admin Panel</a></li>
+              @endif
             @endif
           </ul>
             </div>

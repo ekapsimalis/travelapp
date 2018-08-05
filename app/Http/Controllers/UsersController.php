@@ -25,6 +25,7 @@ class UsersController extends Controller
         $user->email = $email;
         $user->password = $password;
         $user->username = $username;
+        $user->type = 'default';
         $user->save();
 
         Auth::login($user);
