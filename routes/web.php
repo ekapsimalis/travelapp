@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Core Application Routes
+
 Route::get('/', 'PagesController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/signup', 'PagesController@signup')->name('signup');
@@ -19,8 +22,24 @@ Route::post('/plogin', 'UsersController@postLogIn')->name('post.login');
 Route::get('/logout', 'UsersController@getLogOut')->name('logout');
 Route::get('/dashboard', 'PagesController@dashboard')->name('dashboard');
 Route::post('/ppost', 'PostsController@postPost')->name('post.post');
+
+// Admin Routes
+
 Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('admin');
+Route::get('/admin/users', 'AdminController@users')->middleware('is_admin')->name('admin.users');
+Route::get('/admin/users/delete/{id}', 'AdminController@deleteUser')->middleware('is_admin')->name('admin.users.delete');
+Route::get('/admin/users/promote/{id}', 'AdminController@promoteUser')->middleware('is_admin')->name('admin.users.promote');
+Route::get('/admin/createcountry', 'AdminController@createCountry')->middleware('is_admin')->name('admin.createc');
+Route::post('/admin/pcreatecountry', 'AdminController@postCreateCountry')->name('post.create.country')->middleware('is_admin');
+Route::get('/admin/createplace', 'AdminController@createPlace')->middleware('is_admin')->name('admin.createp');
+Route::post('/admin/pcreateplace', 'AdminController@postCreatePlace')->name('post.create.place')->middleware('is_admin');
+
+// Explore Routes
+
 Route::get('/countries', 'CountriesController@index')->name('countries');
 Route::get('/countries/{id}', 'CountriesController@show')->name('show.country');
 Route::get('/{continent}', 'CountriesController@byContinents')->name('countries.continents');
+
+// Feedback Route
+
 Route::post('/pfeedback', 'PagesController@postFeedback')->name('post.feedback');

@@ -16,6 +16,24 @@
     </ul>
 @endif
 
+@if (Session::has('countrycreated'))
+    <ul class="collection center-align">
+        <li class="collection-item green">{{ Session::get('countrycreated') }}</li>
+    </ul>
+@endif
+
+@if (Session::has('deleteUser'))
+    <ul class="collection center-align">
+        <li class="collection-item green">{{ Session::get('deleteUser') }}</li>
+    </ul>
+@endif
+
+@if (Session::has('placecreated'))
+    <ul class="collection center-align">
+        <li class="collection-item green">{{ Session::get('placecreated') }}</li>
+    </ul>
+@endif
+
 @if (count($errors) > 0)
     @foreach ($errors->all() as $error)
         <ul class="collection center-align">

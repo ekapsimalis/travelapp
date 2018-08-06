@@ -11,5 +11,10 @@
         responsiveThreshold: 10,
      });
 
+     var select = document.querySelectorAll('select');
+     M.FormSelect.init(select);
+
+     var instance = M.FormSelect.getInstance(select);
+
  
         
