@@ -27,6 +27,7 @@
                     <small>
                         <a href="{{route('admin.users.delete', $user->id)}}" class="waves-effect waves-light btn-small">Delete</a>
                         <a href="{{route('admin.users.promote', $user->id)}}" class="waves-effect waves-light btn-small disabled">Promote</a>
+                        <a href="{{route('admin.users.demote', $user->id)}}" class="waves-effect waves-light btn-small">Demote</a>
                     </small>
                 </li>
             @else
@@ -35,9 +36,12 @@
                     <small>
                         <a href="{{route('admin.users.delete', $user->id)}}" class="waves-effect waves-light btn-small">Delete</a>
                         <a href="{{route('admin.users.promote', $user->id)}}" class="waves-effect waves-light btn-small">Promote</a>
+                        <a href="{{route('admin.users.demote', $user->id)}}" class="waves-effect waves-light btn-small disabled">Demote</a>
                     </small>
                 </li>
             @endif
         @endforeach
     </ul>
+
+    {{ $users->links() }}
 @endsection

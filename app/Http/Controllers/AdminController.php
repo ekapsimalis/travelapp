@@ -11,6 +11,13 @@ use Session;
 
 class AdminController extends Controller
 {
+
+    public function __construct(){
+
+        $this->middleware('auth');
+
+    }
+
     public function admin(){
 
         $allfeedbacks = Feedback::all();
@@ -94,6 +101,15 @@ class AdminController extends Controller
 
         $user = User::find($id);
         $user->type = 'admin';
+        $user->save();
+
+        return redirect()->back();
+    }
+
+    public function demoteUser($id){
+
+        $user = User::find($id);
+        $user->type = 'default';
         $user->save();
 
         return redirect()->back();

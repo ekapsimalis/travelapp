@@ -16,9 +16,13 @@ class CountriesController extends Controller
     public function show($id){
 
         $country = Country::find($id);
-        $places = Country::find($id)->places;
 
-        return view('country.show')->with('country', $country)->with('places', $places);
+        if ($country !== null){
+            $places = Country::find($id)->places;
+            return view('country.show')->with('country', $country)->with('places', $places);
+        }
+
+        return "PAGE NOT FOUND!";
     }
 
     public function byContinents($continent){

@@ -29,6 +29,7 @@ Route::get('/admin', 'AdminController@admin')->middleware('is_admin')->name('adm
 Route::get('/admin/users', 'AdminController@users')->middleware('is_admin')->name('admin.users');
 Route::get('/admin/users/delete/{id}', 'AdminController@deleteUser')->middleware('is_admin')->name('admin.users.delete');
 Route::get('/admin/users/promote/{id}', 'AdminController@promoteUser')->middleware('is_admin')->name('admin.users.promote');
+Route::get('/admin/users/demote/{id}', 'AdminController@demoteUser')->middleware('is_admin')->name('admin.users.demote');
 Route::get('/admin/createcountry', 'AdminController@createCountry')->middleware('is_admin')->name('admin.createc');
 Route::post('/admin/pcreatecountry', 'AdminController@postCreateCountry')->name('post.create.country')->middleware('is_admin');
 Route::get('/admin/createplace', 'AdminController@createPlace')->middleware('is_admin')->name('admin.createp');
