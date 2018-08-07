@@ -23,4 +23,8 @@ class User extends Model implements Authenticatable
     public function isAdmin(){
         return $this->type === self::ADMIN_TYPE;
     }
+
+    public function countries(){
+        return $this->belongsToMany('App\Country');
+    }
 }

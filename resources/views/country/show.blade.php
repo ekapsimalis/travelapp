@@ -32,12 +32,15 @@
     <div class="container">
         <div class="row">
             <div class="col s7">
-                <div class="card medium col s11 z-depth-3 teal lighten-4">
+                <div class="card col s11 z-depth-3 teal lighten-4">
                     <div class="card-content">
                         <h3 class="center-align">
                             {{ $country->name }}
                         </h3>
-                        <div class="divider"></div>
+                        @auth
+                        <a href="{{route('like.country', $country->id)}}" class="waves-effect waves-light btn col s12 green accent-4">Like</a>
+                        @endauth
+                        <div class="row"></div>
                         <p>
                             {{ $country->description }}
                         </p>
