@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\User;
 use App\Feedback;
+use App\Country;
 use Session;
 
 class PagesController extends Controller
@@ -40,7 +41,13 @@ class PagesController extends Controller
 
         $posts = Post::orderBy('id', 'desc')->paginate(10);
 
-        return view('dashboard')->with('posts', $posts);
+        // Add countries per user in the dashboard
+        $user = Auth::user();
+        $countries = $user->countries()->get();
+        $count = count($countries);
+        //var_dump($count);
+
+        return view('dashboard')->with('posts', $posts)->with('countries', $countries)->with('count', $count);
     }
 
     public function postFeedback(Request $request){

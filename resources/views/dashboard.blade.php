@@ -15,9 +15,30 @@
                 <button type="submit" class="btn waves-effect waves-light">Post</button>
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
             </form>
-
-            
-           
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="center-align">Countries you liked</h5>
+                    <div class="row"></div>
+                    @if ($count == 0)
+                        <p class="center-align red">You haven't like any country yet... :(</p>
+                        <a href="{{route('countries')}}" class="btn waves-effect waves-light col s12">Explore Countries</a>
+                    @else    
+                        <ul class="collection z-depth-3">
+                            @foreach ($countries as $country)
+                                <li class="collection-item">
+                                    <a href="{{route('show.country', $country->id)}}"><h5 class="center-align">{{$country->name}}</h5></a>
+                                    <div class="row">
+                                        <img src="{{$country->image}}" alt="" class="col s12">
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif    
+                </div>
+            </div>
+            <div class="row">
+                <h5 class="center-align">Your recent comments</h5>
+            </div>
 
         </div>
         <div class="col s5">
