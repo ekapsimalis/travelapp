@@ -37,12 +37,14 @@
                         <h3 class="center-align">
                             {{ $country->name }}
                         </h3>
+                        @auth
                         @if($liked)
                             <a href="{{route('like.country', $country->id)}}" class="waves-effect waves-light btn disabled col s12 green accent-4">Already liked</a>
                             <a href="{{route('unlike.country', $country->id)}}" class="waves-effect waves-light btn col s12 red">Undo</a>
                         @else
                         <a href="{{route('like.country', $country->id)}}" class="waves-effect waves-light btn col s12 green accent-4">Like</a>
                         @endif
+                        @endauth
                         <div class="row"></div>
                         <p>
                             {{ $country->description }}
