@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Country;
 use App\User;
+use App\Comment;
+use Session;
 
 class CountriesController extends Controller
 {
@@ -39,9 +41,12 @@ class CountriesController extends Controller
                     break;
                 }
             }
-             //return var_dump($hadLiked);
 
-            return view('country.show')->with('country', $country)->with('places', $places)->with('liked', $hadLiked);
+            // Showing the total comments made by this country
+
+            $comments = Country::find($id)->comments;
+
+            return view('country.show')->with('country', $country)->with('places', $places)->with('liked', $hadLiked)->with('comments', $comments);
         }
 
         return view('country.notfound');
@@ -80,5 +85,20 @@ class CountriesController extends Controller
         }
 
         return "Unauthorized Page";
+    }
+
+    public function postComment(Request $request, $id){
+        $user = Auth::user();
+
+        $comment = new Comment();
+
+        $comment->title = $request['title'];
+        $comment->body = $request['body'];
+        $comment->user_id = $user->id;
+        $comment->country_id = $id;
+
+        $comment->save();
+        Session::flash('comment', 'Comment Posted!');
+        return redirect()->back();
     }
 }

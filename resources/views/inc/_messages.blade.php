@@ -34,6 +34,12 @@
     </ul>
 @endif
 
+@if (Session::has('comment'))
+    <ul class="collection center-align">
+        <li class="collection-item green">{{ Session::get('comment') }}</li>
+    </ul>
+@endif
+
 @if (count($errors) > 0)
     @foreach ($errors->all() as $error)
         <ul class="collection center-align">

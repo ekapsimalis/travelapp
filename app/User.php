@@ -27,4 +27,8 @@ class User extends Model implements Authenticatable
     public function countries(){
         return $this->belongsToMany('App\Country');
     }
+
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
 }

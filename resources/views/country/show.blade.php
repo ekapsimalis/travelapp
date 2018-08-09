@@ -92,4 +92,41 @@
             </div>
         @endforeach
     @endif
+
+    @auth
+        <div class="row">
+            <h5 class="center-align">Write something about {{$country->name}}</h5>
+            <form action="{{route('countries.post.comment', $country->id)}}" method="post">
+                <div class="container">
+                    <div class="input-field col s12">
+                        <input id="title" type="text" class="validate" name="title">
+                        <label for="title">Title</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="body" class="materialize-textarea" name="body"></textarea>
+                        <label for="body">Comment</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <button type="submit" class="waves-effect waves-light btn col s12">Comment</button>
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="container">
+                <div class="container">
+                    <ul class="collection">
+                        @foreach($comments as $comment)
+                            <li class="collection-item teal lighten-4">
+                                <h5 class="center-align">{{$comment->title}}</h5>
+                                <p class="center-align">Posted by: <i>{{$comment->user->username}}</i></p>
+                                <p class="center-align">{{$comment->body}}</p>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    @endauth
 @endsection

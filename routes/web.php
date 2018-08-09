@@ -42,6 +42,7 @@ Route::get('/countries/{id}', 'CountriesController@show')->name('show.country');
 Route::get('/countries/like/{id}', 'CountriesController@like')->name('like.country');
 Route::get('/countries/unlike/{id}', 'CountriesController@unlike')->name('unlike.country');
 Route::get('/{continent}', 'CountriesController@byContinents')->name('countries.continents');
+Route::post('/countries/pcomment/{id}', 'CountriesController@postComment')->middleware('auth')->name('countries.post.comment');
 
 // Feedback Route
 
