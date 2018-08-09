@@ -11,6 +11,15 @@ This is a travel app organizer where you can:
 7. Comment about a specific country or place
 8. Discover what other people think about travels in different places in the world
 
+## Current stage-Possible improvments
+
+Satisfied by the work so far -- Possible improvements until 20/08/2018
+
+1. Sort countries by popularity
+2. Write comments for a specific country
+3. Display latest entries HOME screen
+4. Display latests comments by user DASHBOARD screen
+
 ## Technical information
 
 I used the following technologies:
