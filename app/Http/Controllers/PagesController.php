@@ -8,6 +8,7 @@ use App\Post;
 use App\User;
 use App\Feedback;
 use App\Country;
+use App\Comment;
 use Session;
 
 class PagesController extends Controller
@@ -45,9 +46,13 @@ class PagesController extends Controller
         $user = Auth::user();
         $countries = $user->countries()->get();
         $count = count($countries);
-        //var_dump($count);
 
-        return view('dashboard')->with('posts', $posts)->with('countries', $countries)->with('count', $count);
+        // Add comment created by the user
+
+        $comments = $user->comments()->orderby('id', 'desc')->take(10)->get();
+
+
+        return view('dashboard')->with('posts', $posts)->with('countries', $countries)->with('count', $count)->with('comments', $comments);
     }
 
     public function postFeedback(Request $request){
@@ -77,4 +82,3 @@ class PagesController extends Controller
 
     }
 }
-

@@ -42,9 +42,9 @@ class CountriesController extends Controller
                 }
             }
 
-            // Showing the total comments made by this country
+            // Showing the total comments made by this country desc order
 
-            $comments = Country::find($id)->comments;
+            $comments = Country::find($id)->comments()->orderby('id', 'desc')->get();
 
             return view('country.show')->with('country', $country)->with('places', $places)->with('liked', $hadLiked)->with('comments', $comments);
         }
@@ -58,7 +58,7 @@ class CountriesController extends Controller
     }
 
     public function like($id){
-        
+
         // Check if the user is Authenticated
         // Else we may encounter strange errors
 
@@ -89,6 +89,11 @@ class CountriesController extends Controller
 
     public function postComment(Request $request, $id){
         $user = Auth::user();
+        
+        $this->validate($request, [
+          'title' => 'required|max:191',
+          'body' => 'required'
+        ]);
 
         $comment = new Comment();
 

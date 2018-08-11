@@ -22,7 +22,7 @@
                     @if ($count == 0)
                         <p class="center-align red">You haven't like any country yet... :(</p>
                         <a href="{{route('countries')}}" class="btn waves-effect waves-light col s12">Explore Countries</a>
-                    @else    
+                    @else
                         <ul class="collection z-depth-3">
                             @foreach ($countries as $country)
                                 <li class="collection-item">
@@ -33,11 +33,24 @@
                                 </li>
                             @endforeach
                         </ul>
-                    @endif    
+                    @endif
                 </div>
             </div>
             <div class="row">
                 <h5 class="center-align">Your recent comments</h5>
+                @if(count($comments) == 0)
+                  <p class="center-align red"><i>You have no comments</i></p>
+                @else
+                  <ul class="collection z-depth-3">
+                    @foreach($comments as $comment)
+                      <li class="collection-item grey lighten-4 z-depth-3">
+                        <h5 class="center-align">{{$comment->title}}</h5>
+                        <p class="center-align">Commenting for {{$comment->country->name}}</p>
+                        <p class="center-align">{{$comment->body}}</p>
+                      </li>
+                    @endforeach
+                  </ul>
+                @endif
             </div>
 
         </div>
