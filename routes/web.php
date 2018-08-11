@@ -38,6 +38,7 @@ Route::post('/admin/pcreateplace', 'AdminController@postCreatePlace')->name('pos
 // Explore Routes
 
 Route::get('/countries', 'CountriesController@index')->name('countries');
+Route::get('/countries/bypopularity', 'CountriesController@byPopularity')->name('countries.popularity');
 Route::get('/countries/{id}', 'CountriesController@show')->name('show.country');
 Route::get('/countries/like/{id}', 'CountriesController@like')->name('like.country');
 Route::get('/countries/unlike/{id}', 'CountriesController@unlike')->name('unlike.country');

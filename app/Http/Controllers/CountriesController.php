@@ -67,6 +67,10 @@ class CountriesController extends Controller
             $user = Auth::user();
 
             $user->countries()->attach($country);
+
+            // Update the popularity column
+            $country->popularity = $country->popularity + 1;
+            $country->save();
             return redirect()->back();
         }
 
@@ -81,6 +85,10 @@ class CountriesController extends Controller
             $user = Auth::user();
 
             $user->countries()->detach($country);
+
+            //Update the popularity column
+            $country->popularity = $country->popularity - 1;
+            $country->save();
             return redirect()->back();
         }
 
@@ -89,7 +97,7 @@ class CountriesController extends Controller
 
     public function postComment(Request $request, $id){
         $user = Auth::user();
-        
+
         $this->validate($request, [
           'title' => 'required|max:191',
           'body' => 'required'
@@ -105,5 +113,10 @@ class CountriesController extends Controller
         $comment->save();
         Session::flash('comment', 'Comment Posted!');
         return redirect()->back();
+    }
+
+    public function byPopularity(){
+      $countries = Country::orderby('popularity', 'desc')->get();
+      return view('country.byPopularity')->with('countries', $countries);
     }
 }
