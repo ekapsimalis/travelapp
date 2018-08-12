@@ -55,20 +55,18 @@
 
         </div>
         <div class="col s5">
-            <p class="center-align">What other people say...</p>
+            <p class="center-align">Latests users posts</p>
             @foreach($posts as $post)
                 <div class="card grey lighten-4 z-depth-3">
                     <div class="card-content">
                         <span class=" black-text card-title"> <i class="material-icons prefix">account_circle</i> {{ $post->user->email }}</span>
                         <div class="divider"></div>
                         <p class="black-text"> {{ $post->body }}</p>
-                        <small class="black-text">Posted at: <strong>{{ $post->created_at }}</strong></small>
-                        <!--Apply a date conversion using unix PHP-->
+                        <small class="black-text">{{date('j M, Y H:i', strtotime($post->created_at))}}</strong></small>
                     </div>
                 </div>
             @endforeach
 
         </div>
     </div>
-    {{ $posts->links() }}
 @endsection

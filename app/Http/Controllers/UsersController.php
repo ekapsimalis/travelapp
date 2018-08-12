@@ -35,10 +35,10 @@ class UsersController extends Controller
     }
 
     public function postLogIn(Request $request){
-        
+
         $this->validate($request, [
-            'email' => 'required',
-            'password' => 'required'
+            'email' => 'required|max:191',
+            'password' => 'required|max:191'
         ]);
 
         if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])){

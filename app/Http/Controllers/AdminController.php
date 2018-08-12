@@ -41,6 +41,16 @@ class AdminController extends Controller
 
     public function postCreateCountry(Request $request){
 
+      $this->validate($request, [
+        'name' => 'required|max:191',
+        'image' => 'required|max:191',
+        'continent' => 'required|max:191',
+        'population' => 'required|max:191',
+        'description' => 'required',
+        'lat' => 'required',
+        'lng' => 'required'
+      ]);
+
         $country = new Country();
 
         $country->name = $request['name'];
@@ -65,6 +75,13 @@ class AdminController extends Controller
     }
 
     public function postCreatePlace(Request $request){
+
+      $this->validate($request, [
+        'name' => 'required|max:191',
+        'information' => 'required',
+        'country_id' => 'required',
+        'image' => 'required'
+      ]);
 
         $place = new Place();
 

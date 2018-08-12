@@ -39,8 +39,8 @@ class PagesController extends Controller
         if (Auth::guest()){
             return redirect()->route('login');
         }
-
-        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        // Return the latests 15 posts
+        $posts = Post::orderBy('id', 'desc')->take(15)->get();
 
         // Add countries per user in the dashboard
         $user = Auth::user();
