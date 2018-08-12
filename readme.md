@@ -1,24 +1,27 @@
 ## Nature and travel organizer
 
-This is a travel app organizer where you can: 
+This is a travel app organizer where you can:
 
 1. Create your account, log in, log out
-2. Explore beautifull places and countries to visit
+2. Explore beautiful places and countries to visit
 3. Informed about latest travel and nature related news
 4. Save the places you already visit
-5. Reccomend places to others
-6. Comment about your travel experiences 
+5. Recommend places to others
+6. Comment about your travel experiences
 7. Comment about a specific country or place
 8. Discover what other people think about travels in different places in the world
 
-## Current stage-Possible improvments
+## Current stage-Possible improvements
 
-Satisfied by the work so far -- Possible improvements until 20/08/2018
+Project almost finished -- Possible improvements until 20/08/2018
 
-1. Sort countries by popularity
-2. Write comments for a specific country
-3. Display latest entries HOME screen
-4. Display latests comments by user DASHBOARD screen
+1. Vote for the best place to visit in each country
+
+Possible improvements after the deadline to test my web development skills
+
+1. Chat rooms, users interaction
+2. Display deals, promotion packages, cheap airport tickets
+3. Top rated hotels to stay 
 
 ## Technical information
 
@@ -27,7 +30,7 @@ I used the following technologies:
 # Frond end
 
 1. HTML 5
-2. Materialize CSS and Javascript
+2. Materialize CSS and JavaScript
 
 # Back end
 
