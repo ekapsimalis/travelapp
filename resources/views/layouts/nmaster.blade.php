@@ -14,6 +14,7 @@
                    @include('inc._navbar')
              </header>
              <main>
+                 @include('inc._messages')
                  @yield('content')
              </main>
              <footer class="page-footer brown darken-3">

@@ -42,9 +42,16 @@ Route::get('/countries/bypopularity', 'CountriesController@byPopularity')->name(
 Route::get('/countries/{id}', 'CountriesController@show')->name('show.country');
 Route::get('/countries/like/{id}', 'CountriesController@like')->name('like.country');
 Route::get('/countries/unlike/{id}', 'CountriesController@unlike')->name('unlike.country');
-Route::get('/{continent}', 'CountriesController@byContinents')->name('countries.continents');
+Route::get('/countries/search/{continent}', 'CountriesController@byContinents')->name('countries.continents');
 Route::post('/countries/pcomment/{id}', 'CountriesController@postComment')->middleware('auth')->name('countries.post.comment');
 
 // Feedback Route
 
 Route::post('/pfeedback', 'PagesController@postFeedback')->name('post.feedback');
+
+// News room Route
+
+Route::get('/news', 'NewsController@index')->middleware('auth')->name('news.index');
+Route::get('/news/science', 'NewsController@science')->middleware('auth')->name('news.science');
+Route::get('/news/health', 'NewsController@health')->middleware('auth')->name('news.health');
+Route::post('/news/savearticle', 'NewsController@save')->middleware('auth')->name('news.save');

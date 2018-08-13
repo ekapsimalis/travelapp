@@ -63,15 +63,26 @@ class CountriesController extends Controller
         // Else we may encounter strange errors
 
         if (!Auth::guest()){
+
             $country = Country::find($id);
             $user = Auth::user();
 
-            $user->countries()->attach($country);
+            // Check if the record already exist in the database   
+            if (DB::table('country_user')->where([
+                ['country_id', '=', $country->id],
+                ['user_id', '=', $user->id]
+            ])->exists()){
+                Session::flash('like_exist', 'You have already liked the country');
+                return redirect()->route('show.country', $country->id);
+            }
+            else{
+                $user->countries()->attach($country);
 
-            // Update the popularity column
-            $country->popularity = $country->popularity + 1;
-            $country->save();
-            return redirect()->back();
+                // Update the popularity column
+                $country->popularity = $country->popularity + 1;
+                $country->save();
+                return redirect()->back();
+            }
         }
 
         return "Unauthorized Page";
@@ -84,12 +95,20 @@ class CountriesController extends Controller
             $country = Country::find($id);
             $user = Auth::user();
 
-            $user->countries()->detach($country);
+            if (DB::table('country_user')->where([
+                ['country_id', '=', $country->id],
+                ['user_id', '=', $user->id],
+            ])->doesntExist()){
+                return redirect()->back();
+            }
+            else{
+                $user->countries()->detach($country);
 
-            //Update the popularity column
-            $country->popularity = $country->popularity - 1;
-            $country->save();
-            return redirect()->back();
+                //Update the popularity column
+                $country->popularity = $country->popularity - 1;
+                $country->save();
+                return redirect()->back();
+            }
         }
 
         return "Unauthorized Page";

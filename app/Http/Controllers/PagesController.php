@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\User;
 use App\Feedback;
@@ -51,8 +52,13 @@ class PagesController extends Controller
 
         $comments = $user->comments()->orderby('id', 'desc')->take(10)->get();
 
+        //Display saved articles
 
-        return view('dashboard')->with('posts', $posts)->with('countries', $countries)->with('count', $count)->with('comments', $comments);
+        $articles = DB::table('news')->where('user_id', '=', $user->id)->orderBy('id', 'desc')->get();
+
+
+        return view('dashboard')->with('posts', $posts)->with('countries', $countries)
+        ->with('count', $count)->with('comments', $comments)->with('articles', $articles);
     }
 
     public function postFeedback(Request $request){

@@ -52,6 +52,22 @@
                   </ul>
                 @endif
             </div>
+            <div class="row">
+                <h5 class="center-align">Your Articles</h5>
+                @if(count($articles) == 0)
+                    <p class="center-align red">You have not saved any articles</p>
+                @else
+                    <ul class="collection z-depth-3">
+                        @foreach($articles as $article)
+                            <li class="collection-item grey lighten-4 z-depth-3">
+                                <h5 class="center-align">{{$article->title}}</h5>
+                                <p>{{$article->description}}</p>
+                                <small><a href="{{$article->url}}" target="_blank">Read full article</a></small>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
+            </div>
 
         </div>
         <div class="col s5">

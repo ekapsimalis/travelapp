@@ -12,7 +12,7 @@
           <li><a class="grey-text text-lighten-3" href="{{route('home')}}">Home</a></li>
           <li><a class="grey-text text-lighten-3" href="{{route('about')}}">Contact us</a></li>
           <li><a class="grey-text text-lighten-3" href="{{route('countries')}}">Explore</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Science</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">News Room</a></li>
         </ul>
       </div>
     </div>

@@ -40,6 +40,12 @@
     </ul>
 @endif
 
+@if (Session::has('like_exist'))
+    <ul class="collection center-align">
+        <li class="collection-item red">{{ Session::get('like_exist') }}</li>
+    </ul>
+@endif
+
 @if (count($errors) > 0)
     @foreach ($errors->all() as $error)
         <ul class="collection center-align">
