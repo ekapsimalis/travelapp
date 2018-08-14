@@ -55,3 +55,4 @@ Route::get('/news', 'NewsController@index')->middleware('auth')->name('news.inde
 Route::get('/news/science', 'NewsController@science')->middleware('auth')->name('news.science');
 Route::get('/news/health', 'NewsController@health')->middleware('auth')->name('news.health');
 Route::post('/news/savearticle', 'NewsController@save')->middleware('auth')->name('news.save');
+Route::get('/news/delete/{id}', 'PagesController@deleteArticle')->middleware('auth')->name('article.delete');

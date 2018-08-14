@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Nature\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Post;
-use App\User;
-use App\Feedback;
-use App\Country;
-use App\Comment;
-use App\Place;
+use Nature\Post;
+use Nature\User;
+use Nature\Feedback;
+use Nature\Country;
+use Nature\Comment;
+use Nature\Place;
 use Session;
 
 class PagesController extends Controller
@@ -91,5 +91,17 @@ class PagesController extends Controller
 
         return redirect()->route('dashboard');
 
+    }
+
+    public function deleteArticle($id){
+        $article = DB::table('news')->where('id', $id)->get();
+        //Checking if the article belongs to the authorized user
+        if($article[0]->user_id === Auth::user()->id){
+            DB::table('news')->where('id', $id)->delete();
+            return redirect()->back();
+        }
+        else{
+            return "Unauthorized Page!";
+        }
     }
 }

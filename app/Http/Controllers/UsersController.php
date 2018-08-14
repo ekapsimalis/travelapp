@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Nature\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use Nature\User;
 use Session;
 
 class UsersController extends Controller

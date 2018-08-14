@@ -44,6 +44,7 @@
 
 <div class="row">
   <h4 class="center-align">Check out our latest entries for places to visit</h4>
+  <div class="divider"></div>
 </div>
 <div class="row">
   @foreach($places as $place)
@@ -60,6 +61,7 @@
 
 <div class="row">
   <h4 class="center-align">People and countries</h4>
+  <div class="divider"></div>
 </div>
 <div class="row">
   <div class="col s6">
@@ -88,6 +90,7 @@
 
 <div class="row">
   <h4 class="center-align">More news</h4>
+  <div class="divider"></div>
 </div>
 
 <div class="row">

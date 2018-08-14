@@ -63,6 +63,7 @@
                                 <h5 class="center-align">{{$article->title}}</h5>
                                 <p>{{$article->description}}</p>
                                 <small><a href="{{$article->url}}" target="_blank">Read full article</a></small>
+                                <small><a href="{{route('article.delete', $article->id)}}" class="right"> Delete</a></small>
                             </li>
                         @endforeach
                     </ul>

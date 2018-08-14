@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Nature;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -13,11 +13,11 @@ class User extends Model implements Authenticatable
     const DEFAULT_TYPE = 'default';
 
     public function posts(){
-        return $this->hasMany('App\Post');
+        return $this->hasMany('Nature\Post');
     }
 
     public function feedbacks(){
-        return $this->hasMany('App\Feedback');
+        return $this->hasMany('Nature\Feedback');
     }
 
     public function isAdmin(){
@@ -25,10 +25,10 @@ class User extends Model implements Authenticatable
     }
 
     public function countries(){
-        return $this->belongsToMany('App\Country');
+        return $this->belongsToMany('Nature\Country');
     }
 
     public function comments(){
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('Nature\Comment');
     }
 }

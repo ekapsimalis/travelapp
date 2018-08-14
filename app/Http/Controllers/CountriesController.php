@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Nature\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Country;
-use App\User;
-use App\Comment;
+use Nature\Country;
+use Nature\User;
+use Nature\Comment;
 use Session;
 
 class CountriesController extends Controller

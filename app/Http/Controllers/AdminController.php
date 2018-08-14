@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Nature\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Country;
-use App\Place;
-use App\Feedback;
+use Nature\User;
+use Nature\Country;
+use Nature\Post;
+use Nature\Place;
+use Nature\Feedback;
+use Nature\Comment;
 use Session;
 
 class AdminController extends Controller
@@ -108,6 +110,14 @@ class AdminController extends Controller
 
         $user = User::find($id);
         $user->delete();
+
+        //Delete the related entries
+        $posts = Post::where('user_id', $id);
+        $posts->delete();
+        $comments = Comment::where('user_id', $id);
+        $comments->delete();
+        $feedbacks = Feedback::where('user_id', $id);
+        $feedbacks->delete();
 
         Session::flash('deleteUser', 'User has been deleted');
         return redirect()->back();
