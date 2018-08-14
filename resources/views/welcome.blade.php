@@ -43,6 +43,50 @@
     </div>
 
 <div class="row">
+  <h4 class="center-align">Check out our latest entries for places to visit</h4>
+</div>
+<div class="row">
+  @foreach($places as $place)
+    <div class="card medium z-depth-3 col s4 grey lighten-4">
+      <div class="card-content">
+        <img src="{{$place->image}}" alt="smt" class="col s12">
+        <h5 class="center-align">{{$place->name}}</h5>
+        <h5 class="center-align">Exlore the place in {{$place->country->name}} page</h5>
+        <a href="{{route('show.country', $place->country->id)}}" class="waves-effect waves-light btn col s12">Go to {{$place->country->name}}</a>
+      </div>
+    </div>
+  @endforeach
+</div>
+
+<div class="row">
+  <h4 class="center-align">People and countries</h4>
+</div>
+<div class="row">
+  <div class="col s6">
+    <h5 class="center-align">What people said about traveling around the world</h5>
+    <ul class="collection z-depth-3">
+      @foreach($posts as $post)
+        <li class="collection-item teal lighten-2 z-depth-3">
+          <h5 class="center-align">{{$post->user->username}} said on {{date('j M, Y H:i', strtotime($post->created_at))}}</h5>
+          <p class="center-align">{{$post->body}}</p>
+        </li>
+      @endforeach
+    </ul>
+  </div>
+  <div class="col s6">
+    <h4 class="center-align">Popular countries</h4>
+    @foreach($countries as $country)
+      <div class="card small z-depth-3 col s6 grey lighten-4">
+        <img src="{{$country->image}}" alt="smt" class="col s12">
+        <h5 class="center-align">{{$country->name}}</h5>
+        <p class="center-align">Population: {{$country->population}}</p>
+        <p class="center-align">Continent: {{$country->continent}}</p>
+      </div>
+    @endforeach
+  </div>
+</div>
+
+<div class="row">
   <h4 class="center-align">More news</h4>
 </div>
 

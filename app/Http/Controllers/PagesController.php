@@ -10,6 +10,7 @@ use App\User;
 use App\Feedback;
 use App\Country;
 use App\Comment;
+use App\Place;
 use Session;
 
 class PagesController extends Controller
@@ -18,7 +19,11 @@ class PagesController extends Controller
 
         $apiresponse = file_get_contents('https://newsapi.org/v2/top-headlines?sources=national-geographic&apiKey=5f59ad149eff4be1a8f016bfd51d4fb9');
         $news = json_decode($apiresponse);
-        return view('welcome')->with('news', $news);
+        $places = Place::orderBy('id', 'desc')->take(3)->get();
+        $posts = Post::orderBy('id', 'desc')->take(5)->get();
+        $countries = Country::orderBy('popularity', 'desc')->take(4)->get();
+
+        return view('welcome')->with('news', $news)->with('places', $places)->with('posts', $posts)->with('countries', $countries);
 
     }
 

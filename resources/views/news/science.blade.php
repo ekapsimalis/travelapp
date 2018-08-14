@@ -7,15 +7,15 @@
 @section('content')
     <div class="row"></div>
     <div class="row">       
-        <nav>
-            <div class="nav-wrapper blue accent-3">
-                <div class="col s12">
-                    <a href="{{route('news.index')}}" class="breadcrumb">National Geographic News</a>
-                    <a href="{{route('news.science')}}" class="breadcrumb">Science</a>
-                    <a href="{{route('news.health')}}" class="breadcrumb">Health</a>
-                </div>
-            </div>
-         </nav>
+            <nav>
+                    <div class="nav-wrapper blue accent-3">
+                        <ul class="left">
+                            <li><a href="{{route('news.index')}}">National Geographic News</a></li>
+                            <li><a href="{{route('news.science')}}">Science</a></li>
+                            <li><a href="{{route('news.health')}}">Health</a></li>
+                        </ul>
+                    </div>
+                 </nav>
     </div>
     <div class="row">
         @foreach($snews->articles as $article)
