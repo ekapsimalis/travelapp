@@ -34,10 +34,18 @@ class NewsController extends Controller
 
     public function save(Request $request){
 
+        $this->validate($request, [
+            'title' => 'required|max:191',
+            'description' => 'required',
+            'url' => 'required|max:191',
+            'urlToImage' => 'required|max:191'
+        ]);
+
         $user = Auth::user();
 
         DB::table('news')->insert(
-            ['title' => $request['title'], 'description' => $request['description'], 'url' => $request['url'], 'urlToImage' => $request['urlToImage'], 'user_id' => $user->id]         
+            ['title' => $request['title'], 'description' => $request['description'], 'url' => $request['url'],
+             'urlToImage' => $request['urlToImage'], 'user_id' => $user->id]         
         );
         return redirect()->back();
     }

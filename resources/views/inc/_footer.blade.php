@@ -3,7 +3,7 @@
       <div class="col l6 s12">
         <h5 class="white-text">What's the purpose?</h5>
           <p class="grey-text text-lighten-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id commodi assumenda ipsum fugiat, sit molestiae nulla praesentium veniam, impedit facilis facere corporis voluptas quisquam asperiores quia minus ipsa? Ipsum.
+            The application was designed for nature and travel enthusiasts. The user can explore different places around the world interact with them, comment, and see other people’s thought about their recent travels. The application also, provides helpful news about nature, science and health.  
           </p>
       </div>
       <div class="col l4 offset-l2 s12 center-align">
