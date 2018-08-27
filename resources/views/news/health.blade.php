@@ -22,9 +22,8 @@
             <div class="card small  blue lighten-5">
                 <div class="card-content">
                     <img src="{{$article->urlToImage}}" alt="" class="col s5">
-                    <h4 class="center-align">{{$article->title}}</h4>
-                    <p class="center-align">{{$article->description}}</p>
-                    <small><a href="{{$article->url}}" target="_blank">Read more...</a></small>                   
+                    <a href="{{$article->url}}" target="_blank"><h4 class="center-align">{{$article->title}}</h4></a>
+                    <p class="center-align">{{$article->description}}</p>                 
                 </div>
                 <div class="card-action">
                     @if(DB::table('news')->where([
